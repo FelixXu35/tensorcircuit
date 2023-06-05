@@ -52,6 +52,8 @@ extensions = [
     "myst_parser",
 ]
 
+nbsphinx_allow_errors = True
+
 autosectionlabel_prefix_document = True
 
 # Add any paths that contain templates here, relative to this directory.
@@ -144,6 +146,7 @@ html_context = {
 # Output file base name for HTML help builder.
 htmlhelp_basename = "tensorcircuitdoc"
 
+html_title = "TensorCircuit Documentation"
 
 # -- Options for LaTeX output ------------------------------------------------
 

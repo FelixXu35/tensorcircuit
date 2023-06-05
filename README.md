@@ -29,9 +29,9 @@
 
 <p align="center"> English | <a href="README_cn.md"> 简体中文 </a></p>
 
-TensorCircuit is the next generation of quantum circuit simulators with support for automatic differentiation, just-in-time compiling, hardware acceleration, and vectorized parallelism.
+TensorCircuit is the next generation of quantum software framework with support for automatic differentiation, just-in-time compiling, hardware acceleration, and vectorized parallelism.
 
-TensorCircuit is built on top of modern machine learning frameworks and is machine learning backend agnostic. It is specifically suitable for highly efficient simulations of quantum-classical hybrid paradigm and variational quantum algorithms.
+TensorCircuit is built on top of modern machine learning frameworks and is machine learning backend agnostic. It is specifically suitable for highly efficient simulations of quantum-classical hybrid paradigm and variational quantum algorithms. It also supports real quantum hardware access and provides CPU/GPU/QPU hybrid deployment solutions since v0.9.
 
 ## Getting Started
 
@@ -90,7 +90,7 @@ We recommend you install this package with tensorflow also installed as:
 pip install tensorcircuit[tensorflow]
 ```
 
-Other optional dependencies include `[torch]`, `[jax]` and `[qiskit]`.
+Other optional dependencies include `[torch]`, `[jax]`, `[qiskit]` and `[cloud]`.
 
 For the nightly build of tensorcircuit with new features, try:
 
@@ -105,7 +105,9 @@ We also have [Docker support](/docker).
 
 - Tensor network simulation engine based
 
-- JIT, AD, vectorized parallelism compatible, GPU support
+- JIT, AD, vectorized parallelism compatible
+
+- GPU support, quantum device access support, hybrid deployment support
 
 - Efficiency
 
@@ -138,6 +140,10 @@ which is also a good introduction to the software.
 For contribution guidelines and notes, see [CONTRIBUTING](/CONTRIBUTING.md).
 
 We welcome [issues](https://github.com/tencent-quantum-lab/tensorcircuit/issues), [PRs](https://github.com/tencent-quantum-lab/tensorcircuit/pulls), and [discussions](https://github.com/tencent-quantum-lab/tensorcircuit/discussions) from everyone, and these are all hosted on GitHub.
+
+### License
+
+TensorCircuit is open source, released under the Apache License, Version 2.0.
 
 ### Contributors
 
@@ -173,6 +179,7 @@ We welcome [issues](https://github.com/tencent-quantum-lab/tensorcircuit/issues)
     <tr>
       <td align="center" valign="top" width="16.66%"><a href="https://github.com/eurethia"><img src="https://avatars.githubusercontent.com/u/84611606?v=4?s=100" width="100px;" alt="隐公观鱼"/><br /><sub><b>隐公观鱼</b></sub></a><br /><a href="https://github.com/tencent-quantum-lab/tensorcircuit/commits?author=eurethia" title="Code">💻</a> <a href="https://github.com/tencent-quantum-lab/tensorcircuit/commits?author=eurethia" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="16.66%"><a href="https://github.com/WiuYuan"><img src="https://avatars.githubusercontent.com/u/108848998?v=4?s=100" width="100px;" alt="WiuYuan"/><br /><sub><b>WiuYuan</b></sub></a><br /><a href="#example-WiuYuan" title="Examples">💡</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://www.linkedin.com/in/felix-xu-16a153196/"><img src="https://avatars.githubusercontent.com/u/61252303?v=4?s=100" width="100px;" alt="Felix Xu"/><br /><sub><b>Felix Xu</b></sub></a><br /><a href="#tutorial-FelixXu35" title="Tutorials">✅</a></td>
     </tr>
   </tbody>
 </table>
@@ -194,19 +201,35 @@ We welcome [issues](https://github.com/tencent-quantum-lab/tensorcircuit/issues)
 ### DQAS
 
 For the application of Differentiable Quantum Architecture Search, see [applications](/tensorcircuit/applications).
-Reference paper: https://arxiv.org/pdf/2010.08561.pdf (published in QST).
+
+Reference paper: https://arxiv.org/abs/2010.08561 (published in QST).
 
 ### VQNHE
 
 For the application of Variational Quantum-Neural Hybrid Eigensolver, see [applications](/tensorcircuit/applications).
-Reference paper: https://arxiv.org/pdf/2106.05105.pdf (published in PRL) and https://arxiv.org/pdf/2112.10380.pdf.
 
-### VQEX - MBL
+Reference paper: https://arxiv.org/abs/2106.05105 (published in PRL) and https://arxiv.org/abs/2112.10380.
+
+### VQEX-MBL
 
 For the application of VQEX on MBL phase identification, see the [tutorial](/docs/source/tutorials/vqex_mbl.ipynb).
-Reference paper: https://arxiv.org/pdf/2111.13719.pdf (published in PRB).
 
-### Stark - DTC
+Reference paper: https://arxiv.org/abs/2111.13719 (published in PRB).
+
+### Stark-DTC
 
 For the numerical demosntration of discrete time crystal enabled by Stark many-body localization, see the Floquet simulation [demo](/examples/timeevolution_trotter.py).
-Reference paper: https://arxiv.org/pdf/2208.02866.pdf (published in PRL).
+
+Reference paper: https://arxiv.org/abs/2208.02866 (published in PRL).
+
+### EMQAOA-DARBO
+
+For the numerical simulation and hardware experiments with error mitigation on QAOA, see the [project repo](https://github.com/sherrylixuecheng/EMQAOA-DARBO).
+
+Reference paper: https://arxiv.org/abs/2303.14877.
+
+### TenCirChem
+
+[TenCirChem](https://github.com/tencent-quantum-lab/TenCirChem) is an efficient and versatile quantum computation package for molecular properties. TenCirChem is based on TensorCircuit and is optimized for chemistry applications.
+
+Reference paper: https://arxiv.org/abs/2303.10825.

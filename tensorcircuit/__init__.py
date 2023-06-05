@@ -1,6 +1,10 @@
-__version__ = "0.8.0"
+__version__ = "0.9.1"
 __author__ = "TensorCircuit Authors"
 __creator__ = "refraction-ray"
+
+from .utils import gpu_memory_share
+
+gpu_memory_share()
 
 from .about import about
 from .cons import (
@@ -34,16 +38,18 @@ from . import templates
 from . import results
 from . import quantum
 from .quantum import QuOperator, QuVector, QuAdjointVector, QuScalar
+from . import compiler
+from . import cloud
 
 try:
     from . import keras
-    from .keras import QuantumLayer as KerasLayer
+    from .keras import KerasLayer, KerasHardwareLayer
 except ModuleNotFoundError:
     pass  # in case tf is not installed
 
 try:
     from . import torchnn
-    from .torchnn import QuantumNet as TorchLayer
+    from .torchnn import TorchLayer, TorchHardwareLayer
 except ModuleNotFoundError:
     pass  # in case torch is not installed
 
