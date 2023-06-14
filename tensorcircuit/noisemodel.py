@@ -259,7 +259,7 @@ def sample_expectation_ps_noisfy(
     if noise_conf.has_quantum:
         # density matrix
         if isinstance(c, DMCircuit):
-            cnoise = circuit_with_noise(c, noise_conf)
+            cnoise = circuit_with_noise(c, noise_conf)  #  type: ignore
             return cnoise.sample_expectation_ps(
                 x=x, y=y, z=z, shots=shots, status=status, readout_error=readout_error
             )

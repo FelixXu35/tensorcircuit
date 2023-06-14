@@ -25,17 +25,15 @@
 
 <p align="center"> <a href="README.md">English</a> |  简体中文 </p>
 
-TensorCircuit 是下一代量子软件框架，支持自动微分、即时编译、硬件加速和向量并行化。
+TensorCircuit 是下一代量子电路模拟器，支持自动微分、即时编译、硬件加速和向量并行化。
 
 TensorCircuit 建立在现代机器学习框架之上，并且与机器学习后端无关。 它特别适用于量子经典混合范式和变分量子算法的高效模拟。
-
-TensorCircuit 现在支持真实量子硬件连接和实验，并提供优雅的 CPU/GPU/QPU 混合部署方案（v0.9+）。
 
 ## 入门
 
 请从 [快速上手](/docs/source/quickstart.rst) 和 [Jupyter 教程](/docs/source/tutorials) 开始。
 
-有关更多信息和介绍，请参阅有用的 [示例脚本](/examples) 和 [完整文档](https://tensorcircuit.readthedocs.io/zh/latest/)。 [测试](/tests)用例和 API docstring 也提供了丰富的使用信息。
+有关更多信息和介绍，请参阅有用的 [示例脚本](/examples) 和 [完整文档](https://tensorcircuit.readthedocs.io/zh/latest/)。 [测试](/tests) 中的 API docstring 和测试用例也提供了丰富的信息。
 
 以下是一些最简易的演示。
 
@@ -88,7 +86,7 @@ pip install tensorcircuit
 pip install tensorcircuit[tensorflow]
 ```
 
-其他安装选项包括： `[torch]`, `[jax]`, `[qiskit]` 和 `[cloud]`。
+其他安装选项包括： `[torch]`, `[jax]` and `[qiskit]`。
 
 此外我们有每日发布的最新版本 pip package，可以尝鲜开发的最新功能，请通过以下方式安装:
 
@@ -103,9 +101,7 @@ pip install tensorcircuit-nightly
 
 - 基于张量网络模拟引擎
 
-- 即时编译、自动微分、向量并行化兼容
-
-- GPU 支持、量子硬件支持、混合部署方案支持
+- 即时编译、自动微分、向量并行化兼容，GPU 支持
 
 - 效率
 
@@ -137,44 +133,24 @@ pip install tensorcircuit-nightly
 
 我们欢迎大家提出 [issues](https://github.com/tencent-quantum-lab/tensorcircuit/issues), [PR](https://github.com/tencent-quantum-lab/tensorcircuit/pulls), 和 [讨论](https://github.com/tencent-quantum-lab/tensorcircuit/discussions)，这些都托管在 GitHub 上。
 
-### 协议
-
-TensorCircuit 是基于 Apache License 2.0 的开源软件。
-
 ## 研究和应用
 
 ### DQAS
 
 可微量子架构搜索的应用见 [应用](/tensorcircuit/applications)。
-
-参考论文：https://arxiv.org/abs/2010.08561 (QST)。
+参考论文：https://arxiv.org/pdf/2010.08561.pdf (QST)。
 
 ### VQNHE
 
 关于变分量子神经混合本征求解器的应用，请参见 [应用](tensorcircuit/applications)。
+参考论文：https://arxiv.org/pdf/2106.05105.pdf (PRL) 和 https://arxiv.org/pdf/2112.10380.pdf 。
 
-参考论文：https://arxiv.org/abs/2106.05105 (PRL) 和 https://arxiv.org/abs/2112.10380 。
-
-### VQEX-MBL
+### VQEX - MBL
 
 VQEX 在 MBL 相位识别上的应用见 [教程](/docs/source/tutorials/vqex_mbl.ipynb)。
+参考论文: https://arxiv.org/pdf/2111.13719.pdf (PRB)。
 
-参考论文: https://arxiv.org/abs/2111.13719 (PRB)。
+### Stark - DTC
 
-### Stark-DTC
-
-数值验证 Stark 多体局域化稳定的离散时间晶体，类似的 Floquet 系统模拟请参考 [例子](/examples/timeevolution_trotter.py)。
-
-参考论文: https://arxiv.org/abs/2208.02866 (PRL)。
-
-### EMQAOA-DARBO
-
-数值模拟和带错误消除的真实量子硬件实验验证 QAOA 优化的代码请参考 [项目](https://github.com/sherrylixuecheng/EMQAOA-DARBO)。
-
-参考论文: https://arxiv.org/abs/2303.14877。
-
-### TenCirChem
-
-[TenCirChem](https://github.com/tencent-quantum-lab/TenCirChem) 是高效的，专注于处理和计算分子性质的量子计算软件。其基于 TensorCircuit 并为量子化学任务进行了专门的优化。
-
-参考论文: https://arxiv.org/abs/2303.10825。
+数值验证 Stark 多体局域化稳定的离散时间晶体，类似的 Floquet 系统模拟请参考 [例子](/examples/timeevolution_trotter.py).
+参考论文: https://arxiv.org/pdf/2208.02866.pdf (PRL).

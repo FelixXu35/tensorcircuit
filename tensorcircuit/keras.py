@@ -142,12 +142,7 @@ class QuantumLayer(Layer):  # type: ignore
 KerasLayer = QuantumLayer
 
 
-class HardwareLayer(QuantumLayer):
-    """
-    Keras Layer wrapping quantum function with cloud qpu access
-    (using :py:mod:`tensorcircuit.cloud` module)
-    """
-
+class HardwareLayer(QuantumLayer):  # type: ignore
     @tf.autograph.experimental.do_not_convert  # type: ignore
     def call(
         self,
@@ -173,9 +168,6 @@ class HardwareLayer(QuantumLayer):
                 result.append(self.f(inp, *self.pqc_weights, **kwargs))
             result = tf.stack(result)
         return result
-
-
-KerasHardwareLayer = HardwareLayer
 
 
 def output_asis_loss(y_true: tf.Tensor, y_pred: tf.Tensor) -> tf.Tensor:

@@ -1,7 +1,6 @@
 """
 Cross check the correctness of the density matrix simulator and the Monte Carlo trajectory state simulator.
 """
-
 import os
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"

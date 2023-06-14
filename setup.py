@@ -23,7 +23,6 @@ setuptools.setup(
         "jax": ["jax", "jaxlib"],
         "torch": ["torch"],
         "qiskit": ["qiskit"],
-        "cloud": ["qiskit", "mthree"],
     },
     classifiers=[
         "Programming Language :: Python :: 3",

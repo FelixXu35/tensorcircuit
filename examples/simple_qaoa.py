@@ -1,7 +1,6 @@
 """
 A plain QAOA optimization example with given graphs using networkx.
 """
-
 import sys
 
 sys.path.insert(0, "../")

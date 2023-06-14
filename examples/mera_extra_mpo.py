@@ -1,7 +1,3 @@
-"""
-MERA VQE example with Hamiltonian expectation in MPO representation
-"""
-
 import time
 import logging
 import numpy as np

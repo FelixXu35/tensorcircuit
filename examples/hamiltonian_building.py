@@ -1,7 +1,6 @@
 """
 benchmark sparse hamiltonian building
 """
-
 import time
 import numpy as np
 import quimb

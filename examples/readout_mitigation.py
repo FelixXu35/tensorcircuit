@@ -1,7 +1,3 @@
-"""
-Demonstration on readout error mitigation usage
-"""
-
 import numpy as np
 
 import tensorcircuit as tc

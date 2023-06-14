@@ -25,8 +25,6 @@ Docker is also recommended (especially Linux + Nvidia GPU setup):
 
 ``sudo docker run -it --network host --gpus all tensorcircuit/tensorcircuit``.
 
-For more details on docker setup, please refer to `docker readme <https://github.com/tencent-quantum-lab/tensorcircuit/tree/master/docker>`_.
-
 - For Windows, due to the lack of support for Jax, we recommend to use docker or WSL, please refer to `TC via windows docker <contribs/development_windows.html>`_ or `TC via WSL <contribs/development_wsl2.html>`_.
 
 - For Mac with M series chips (arm architecture), please refer to `TC on Mac M series <contribs/development_MacARM.html>`_.
@@ -698,10 +696,10 @@ There is also a more flexible torch interface that support static non-tensor inp
 .. code-block:: python
 
     def f(a, i):
-        s = 0.
-        for _ in range(i):
-            s += a
-        return s
+    s = 0.
+    for _ in range(i):
+        s += a
+    return s
 
     f_torch = tc.interfaces.torch_interface_kws(f)
     f_torch(torch.ones([2]), i=3)

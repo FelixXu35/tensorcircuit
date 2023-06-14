@@ -109,7 +109,7 @@ def torch_interface(
             return r
 
     # currently, memory transparent dlpack in these ML framework has broken support on complex dtypes
-    return Fun.apply
+    return Fun.apply  # type: ignore
 
 
 pytorch_interface = torch_interface

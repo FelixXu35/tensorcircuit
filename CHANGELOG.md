@@ -2,59 +2,17 @@
 
 ## Unreleased
 
-## 0.9.1
-
 ### Added
-
-- Add `tc.TorchHardwarLayer` for shortcut layer construction of quantum hardware experiments
-
-- Add cotengra contractor setup shortcut
-
-- Add simplecompiler module to assite qiskit compile for better performance when targeting rz native basis
-
-### Changed
-
-- Add compiler and cloud namespace to the global tensorcircuit namespace
-
-- Refactor composed compiler pipeline interface to include simple_compiler, using `DefaultCompiler` for now (breaking)
-
-- Refactor `batch_submit_template` wrapper to make it a standard abstraction layer between tc cloud infras and `batch_expectation_ps` abstraction, providing another way to adpot other cloud providers with only `batch_submit_template` implemented
-
-### Fixed
-
-- `submit_task` return (list of dict vs dict) follows the data type of provided circuit instead of the number of circuits
-
-- Fix qubit mapping related bug when using `batch_expectation_ps` or `simple_compile`
-
-## 0.9.0
-
-### Added
-
-- Cloud module for Tencent QCloud is now merged into the master branch and ready to release
 
 - Add `tc.about()` to print related software versions and configs
 
-- Torch support is upgraded to 2.0, and now support native vmap and native functional grad, and thus `vvag`. Still jit support is conflict with these functional transformations and be turned off by default
+- Torch support is updraded to 2.0, and now support native vmap and native functional grad, and thus `vvag`. Still jit support is conflict with these functional transformations and be turned off by default
 
 - Add `torch_interfaces_kws` that support static keyword arguments when wrapping with the interface
-
-- Add `gpu_memory_share` function and enable it by default
-
-- Add `scan` methods for backends
-
-- Add example demontrating how jax compiling time can be accelerated by `jax.lax.scan`
 
 ### Fixed
 
 - Add tests and fixed some missing methods for cupy backend, cupy backend is now ready to use (though still not guaranteed)
-
-- Fix adjoint gate numpy conversion for fixed gate case
-
-- Sometime, tf just return IndexedSlice instead of tensor from gradient API, partially fix this in tc backend methods
-
-### Changed
-
-- Upgraded black and mypy==1.2.0 (breaking change for developers)
 
 ## 0.8.0
 
