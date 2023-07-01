@@ -5,7 +5,7 @@ Shortcuts for measurement patterns on circuit
 # pylint: disable=invalid-name
 
 from functools import wraps
-from typing import Any, Callable, Optional, Sequence, Tuple
+from typing import Any, Callable, Optional, Sequence, Tuple, List
 
 import numpy as np
 
@@ -199,4 +199,51 @@ def qft(
         if do_swaps:
             for i in range(len(index) // 2):
                 c.swap(index[i], index[len(index) - 1 - i])
+    return c
+
+def QAOA_ansatz_for_Ising(
+    params: list, nlayers: int, pauli_terms: List[list], weights: list
+) -> Circuit:
+    """
+    Construct the QAOA ansatz for the Ising Model.
+    The number of qubits is determined by `pauli_terms`.
+
+    :param params: A list of parameter values used in the QAOA ansatz.
+    :param nlayers: The number of layers in the QAOA ansatz.
+    :pauli_terms: A list of Pauli terms, where each term is represented as a list of 0/1 series.
+    :param weights: A list of weights corresponding to each Pauli term.
+    """
+    nqubits = len(pauli_terms[0])
+    c = Circ(nqubits)
+    for i in range(nqubits):
+        c.h(i)  # Apply Hadamard gate to each qubit
+
+    for j in range(nlayers):
+        # cost terms
+        for k in range(len(pauli_terms)):
+            term = pauli_terms[k]
+            index_of_ones = []
+            for l in range(len(term)):
+                if term[l] == 1:
+                    index_of_ones.append(l)
+            if len(index_of_ones) == 1:
+                c.rz(index_of_ones[0], theta=2 * weights[k] * params[2 * j])
+                # Apply Rz gate with angle determined by weight and current parameter value
+            elif len(index_of_ones) == 2:
+                c.exp1(
+                    index_of_ones[0],
+                    index_of_ones[1],
+                    unitary=G.gates._zz_matrix,
+                    theta=weights[k] * params[2 * j],
+                )
+                # Apply exp1 gate with a custom unitary (zz_matrix) and angle determined by weight and current parameter value
+            else:
+                raise ValueError("Invalid number of Z terms")
+
+        # mixing terms
+        for i in range(nqubits):
+            c.rx(
+                i, theta=params[2 * j + 1]
+            )  # Apply Rx gate with angle determined by current parameter value
+
     return c
